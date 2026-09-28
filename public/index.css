@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: linear-gradient(135deg, #0b0f19 0%, #111827 100%);
+    color: #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px 0;
+}
+
+#welcome-text {
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(to right, #ff7ba9, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+    text-shadow: 0px 4px 30px rgba(236, 72, 153, 0.3);
+}
+
+/* ==========================================================================
+   VIDEO LAYOUT: Isse dono boxes ek dusre ke andar-bahar set honge 
+   ========================================================================== */
+
+.video-container {
+    position: relative;
+    align-items: center;
+    width: 460px;      /* Ek video box ki standard width (420px + padding) */
+    height: 400px;     /* Box ki estimated height */
+    margin: 0 auto;
+}
+
+/* Normal Video Box (Jo Remote User ke liye bada dikhega) */
+.video-box {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* YAHAN MAGIC HAI: YOU wale (First Child) box ko chota karke andar float karna */
+.video-container .video-box:first-child {
+    position: absolute;
+    bottom: 35px;
+    right: 35px;
+    width: 130px;      /* Chota floating window size */
+    padding: 10px;
+    border-radius: 16px;
+    z-index: 10;       /* Isse aapka box hamesha upar dikhega */
+    background: rgba(15, 23, 42, 0.85); /* Dark solid glass effect */
+    backdrop-filter: blur(8px);
+}
+
+/* Floating box wale video element ka size auto-adjust karne ke liye */
+.video-container .video-box:first-child video {
+    width: 100%;
+    height: 95px;
+    border-radius: 10px;
+    border: 2px solid #fbcfe8;
+    box-shadow: none;
+}
+
+.video-box p {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #9ca3af;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+video {
+    width: 420px;
+    height: 315px;
+}
+
+/* ==========================================================================
+   STANDARD VIDEO & BUTTON STYLES 
+   ========================================================================== */
+
+.button-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+button {
+    padding: 14px 35px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#open-cam-btn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+#stop-cam-btn {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+/* AAPKA NAYA LOCATION BUTTON (Futuristic Blue Gradient Style) */
+#request-location-btn {
+    background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+/* ==========================================================================
+   REAL-TIME MAP STYLES (Cyberpunk Dark Mode Theme)
+   ========================================================================== */
+
+#map {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* OpenStreetMap ke standard map tiles ko invert karke dark theme dene ke liye magic filter */
+.leaflet-tile-container {
+    filter: invert(1) hue-rotate(180deg) brightness(0.6) contrast(1.2);
+}
+
+/* Map ke upar aane wale standard popup boxes ko glassmorphism layout dena */
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background: rgba(15, 23, 42, 0.95) !important;
+    color: #f3f4f6 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ==========================================================================
+   CHAT DESIGN STYLES 
+   ========================================================================== */
+
+.chat-container {
+    width: 460px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+#chat-box {
+    height: 150px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.message.system {
+    color: #9ca3af;
+    font-style: italic;
+    font-size: 14px;
+    text-align: center;
+}
