@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Chat</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+
+    <div class="video-container">
+        <div class="video-box">
+            <p>You</p>
+            <video id="localVideo" autoplay playsinline muted></video>
+        </div>
+        <div class="video-box">
+            <p>Remote User</p>
+            <video id="remoteVideo" autoplay playsinline></video>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button id="open-cam-btn">Join Call</button>
+        <button id="stop-cam-btn">Leave Call</button>
+        
+        <button id="request-location-btn" style="background-color: #4CAF50; color: white; cursor: pointer;">Request Friend's Location</button>
+    </div>
+
+    <div id="map" style="height: 300px; width: 95%; max-width: 600px; margin: 15px auto; border-radius: 8px; border: 2px solid #ccc;"></div>
+
+    <div class="chat-container">
+        <div id="chat-box">
+            <div class="message system">Messages will appear here when connected...</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="message-input" placeholder="Type a message here..." autocomplete="off">
+            <button id="send-msg-btn">Send</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
